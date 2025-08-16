@@ -1,4 +1,5 @@
 :root {
+    /* Variáveis globais de cores e gradientes */
     --color-primary: #123456;
     --color-secondary: #FFF;
     --azul-royal: #144480;
@@ -7,6 +8,7 @@
     --linear-botes: linear-gradient(180deg, #B872FF 0%, #144480 100%);
 }
 
+/* Gradiente de fundo muda conforme o contexto (foco/descanso) */
 [data-contexto="foco"] {
     --main-bg-color: linear-gradient(180deg, #8B1FF8 0%, #041832 48.44%, #01080E 100%);
 }
@@ -19,15 +21,17 @@
     --main-bg-color: linear-gradient(180deg, #1875E9 0%, #041832 48.44%, #01080E 100%);
 }
 
+/* Reset básico e limite de largura */
 * {
     box-sizing: border-box;
     max-width: 100%;
 }
 
+/* Define fundo principal com gradiente do contexto */
 html {
     background: var(--main-bg-color);
     min-height: 100vh;
-    font-size: 10px;
+    font-size: 10px; /* base em rem */
 }
 
 body {
@@ -37,16 +41,19 @@ body {
     background-repeat: no-repeat;
 }
 
+/* Títulos usam fonte Unbounded */
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Unbounded', cursive;
 }
 
+/* Centraliza logo */
 .app__logo-figure {
     display: flex;
     justify-content: center;
     padding: 4rem 0;
 }
 
+/* Banner principal */
 .app__section-banner-container {
     width: 99rem;
     margin: 0 auto;
@@ -57,10 +64,10 @@ h1, h2, h3, h4, h5, h6 {
     flex-wrap: wrap;
 }
 
+/* Texto principal */
 .app__title {
     line-height: 150%;
     font-size: 5.2rem;
-    font-style: normal;
     color: var(--color-secondary);
     font-weight: 200;
     max-width: 46rem;
@@ -70,6 +77,7 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 600;
 }
 
+/* Card central */
 .app__section-card-container {
     display: flex;
     justify-content: center;
@@ -85,28 +93,26 @@ h1, h2, h3, h4, h5, h6 {
     max-width: 90%;
 }
 
+/* Lista de botões dentro do card */
 .app__card-list {
     list-style: none;
-    padding: 0;
-    margin: 0;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 1.6rem;
+    padding: 0;
+    margin: 0;
 }
 
+/* Botões de foco/descanso */
 .app__card-button {
     font-family: Montserrat;
     font-size: 1.8rem;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 150%;
     background: none;
     padding: 0.8rem;
     color: var(--color-secondary);
     border: none;
     cursor: pointer;
-    outline: inherit;
 }
 
 .app__card-button.active {
@@ -115,29 +121,26 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 600;
 }
 
+/* Timer central */
 .app__card-timer {
     color: var(--color-secondary);
     text-align: center;
     font-family: Unbounded;
     font-size: 12rem;
-    font-style: normal;
     font-weight: 700;
-    line-height: normal;
     margin: 3.2rem;
-    text-align: center;
 }
 
+/* Label do toggle Música */
 .app__card-list-label {
     color: var(--color-secondary);
     font-family: Montserrat;
     font-size: 1.8rem;
-    font-style: normal;
-    font-weight: 400;
 }
 
+/* Botão start/pause */
 .app__card-primary-button-wrapper {
     display: flex;
-    align-items: center;
     justify-content: center;
 }
 
@@ -147,7 +150,6 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--color-secondary);
     border: none;
     cursor: pointer;
-    outline: inherit;
     border-radius: 3.2rem;
     background: var(--linear-botes);
     margin-top: 3.2rem;
@@ -158,13 +160,14 @@ h1, h2, h3, h4, h5, h6 {
     gap: 1rem;
 }
 
+/* Rodapé */
 .app__footer {
     display: flex;
-    width: 100%;
-    padding: 2.8rem 6rem;
     justify-content: center;
     align-items: center;
     background: #010B15;
+    padding: 2.8rem 6rem;
+    width: 100%;
 }
 
 .app__footer-text {
@@ -172,12 +175,10 @@ h1, h2, h3, h4, h5, h6 {
     text-align: center;
     font-family: Montserrat;
     font-size: 1.5rem;
-    font-style: normal;
-    font-weight: 400;
     line-height: 150%;
 }
 
-/* toggle */
+/* ---- Toggle customizado ---- */
 .toggle {
     cursor: pointer;
     display: inline-block;
@@ -190,15 +191,12 @@ h1, h2, h3, h4, h5, h6 {
     width: 5.8rem;
     height: 3.2rem;
     position: relative;
-    vertical-align: middle;
     transition: background 0.25s;
 }
 
-.toggle-switch:before, .toggle-switch:after {
-    content: "";
-}
-
+/* bolinha dentro do switch */
 .toggle-switch:before {
+    content: "";
     display: block;
     background: linear-gradient(to bottom, #fff 0%, #eee 100%);
     border-radius: 50%;
@@ -210,42 +208,42 @@ h1, h2, h3, h4, h5, h6 {
     transition: left 0.25s;
 }
 
+/* hover muda cor */
 .toggle:hover .toggle-switch:before {
     background: linear-gradient(to bottom, #fff 0%, #fff 100%);
 }
 
+/* estado ativo */
 .toggle-checkbox:checked + .toggle-switch {
     background: var(--lils);
 }
 
 .toggle-checkbox:checked + .toggle-switch:before {
-    left: 3rem;
+    left: 3rem; /* move a bolinha */
 }
 
 .toggle-checkbox {
     position: absolute;
-    visibility: hidden;
+    visibility: hidden; /* esconde o checkbox original */
 }
+/* ---- fim do toggle ---- */
 
-/* fim - toggle */
-
-/* Para Tablets */
+/* Responsividade */
 @media (max-width: 1024px) and (min-width: 768px) {
+    /* Tablets */
     .app__section-banner-container {
         width: 48rem;
     }
 }
 
-/* Para Celulares */
 @media (max-width: 767px) {
+    /* Celulares */
     .app__section-banner-container {
         width: 32rem;
     }
-
     .app__title {
         font-size: 2.6rem;
     }
-
     .app__card-timer {
         font-size: 6rem;
     }
