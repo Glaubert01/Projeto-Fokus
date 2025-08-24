@@ -26,7 +26,7 @@ let intervaloId = null
 musica.loop = true
 
 // Duracoes fixas dos modos
-const duracaoFoco = 1500  
+const duracaoFoco = 30  
 const duracaoDescansoCurto = 300  
 const duracaoDescansoLongo = 900  
 
@@ -85,6 +85,11 @@ function alterarContexto (contexto) {
 const contagemRegressiva = () => {
     if(tempoDecorridoEmSegundos <= 0) {
         beep.play()
+        const focoAtivo = html.getAttribute('data-contexto') == 'foco'
+        if(focoAtivo) {
+            const evento = new CustomEvent('focoFinalizado');
+            document.dispatchEvent(evento)
+        }
         zerar()
         return
     }
