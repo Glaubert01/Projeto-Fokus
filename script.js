@@ -20,7 +20,7 @@ const pause = new Audio('/sons/pause.mp3')
 const beep = new Audio('/sons/beep.mp3')
 
 // Estado inicial do timer
-let tempoDecorridoEmSegundos = 1500 // 25min
+let tempoDecorridoEmSegundos = 5 // 25min
 let intervaloId = null
 
 musica.loop = true
